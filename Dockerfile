@@ -11,6 +11,6 @@ RUN apk add --virtual .build-deps --no-cache postgresql-libs postgresql-dev gcc 
     pip install --no-cache-dir -r requirements.txt && \
     apk --purge del .build-deps
 
-COPY . /app/
+COPY [^data]* /app/
 
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
